@@ -29,3 +29,4 @@ class Carro(): #classe é um carro por exemplo
         else:
             print("O carro precisa estar ligado para ser acelerado")
 
+t
