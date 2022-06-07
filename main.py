@@ -1,17 +1,30 @@
-import carro
+class Carro(): #classe é um carro por exemplo
+    """Essa é a classe carro. Esta classe é utilizada para instanciar novos carros em nosso programa"""
+    def __init__(self, cor, qtd_portas, tipo_combustivel, potencia, qtd_combustivel,is_ligado,velocidade):# atributos são as caracteristicas
+        self.cor = cor
+        self.qtd_portas = qtd_portas
+        self.combustivel = tipo_combustivel
+        self.potencia = potencia
+        self.qtd_combustivel = qtd_combustivel
+        self.is_ligado = is_ligado
+        self.velocidade = velocidade
 
-uno_vermelho = carro.Carro("vermelho", 4, "Flex", 1.0, 0, False, 0) #isso é um objeto, é a declaração do que é o carro#
-#help(carro.Carro)
-uno_vermelho.ligar() #chamando o método ligar da classe uno para o carro uno vermelho que contem as propriedades acima
-uno_vermelho.abastecer(50)
-uno_vermelho.abastecer(10)
-
-qtd_abastecida = uno_vermelho.abastecer(input(f"Quantos litros gostaria de abastecer"))
-print(f"A quantidade de combustível do carro é: {uno_vermelho.qtd_combustivel}")
-
-uno_preto = carro.Carro("preto", 2, "Flex", 1.4, 0, False, 0)
-uno_preto.desligar()
-print(f"A quantidade de combustível do carro é: {uno_preto.qtd_combustivel}")
-uno_preto.ligar()
-uno_preto.acelerar()
-print(uno_preto.velocidade)
+    def abastecer (self, qtd_combustivel): #def sempre cria função. Nesse caso estamos criando um método, método abastecer
+        """O método abastecer, recebe como parâmetro a quantidade de combustivel e coloca no atributo qtd_combustivel o objeto carro"""
+        self.qtd_combustivel += qtd_combustivel
+    def ligar (self):
+        if self.is_ligado == Tru:
+           print("O carro já está ligado")
+        else:
+            self.is_ligado = True
+            print("O carro foi ligado")
+    def desligar (self):
+        if self.is_ligado == False:
+            print("O carro já está desligado")
+        else:
+            self.is_ligado = False
+    def acelerar(self, velocidade=10):
+        if self.is_ligado:
+            self.velocidade += velocidade
+        else:
+            print("O carro precisa estar ligado para ser acelerado")
