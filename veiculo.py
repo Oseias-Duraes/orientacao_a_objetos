@@ -1,7 +1,10 @@
-class Veiculo(): #classe é um carro por exemplo
+import abc
+
+
+class Veiculo(abc.ABC): #classe é um carro por exemplo
     """Essa é a classe carro. Esta classe é utilizada para instanciar novos carros em nosso programa"""
     def __init__(self, cor, tipo_combustivel, potencia):# atributos são as caracteristicas
-        self.__cor = cor #dois underlines colocam os atributos como privados e só podem ser alterados com a função
+        self._cor = cor #dois underlines colocam os atributos como privados e só podem ser alterados com a função
         self.__combustivel = tipo_combustivel
         self.__potencia = potencia
         self._qtd_combustivel = 0
@@ -11,6 +14,15 @@ class Veiculo(): #classe é um carro por exemplo
 
     def __del__(self):
         print("O objeto foi removido da memória.")
+
+    @abc.abstractmethod
+    def pintar (self, cor):
+        self._cor = cor
+        print("O veiculo está com a cor", self._cor)
+
+    @property
+    def cor(self):
+        return self._cor
 
     def abastecer (self, qtd_combustivel): #def sempre cria função. Nesse caso estamos criando um método, método abastecer
         """O método abastecer, recebe como parâmetro a quantidade de combustivel e coloca no atributo qtd_combustivel o objeto carro"""
